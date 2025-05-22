@@ -3,38 +3,40 @@ body {
     font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f2f5; /* 少し明るい背景色 */
-    color: #333;
-    line-height: 1.6;
+    background-color: #1f1f1f; /* ダークな背景色 */
+    color: #e0e0e0; /* 明るめの文字色 */
+    line-height: 1.7; /* 行間を少し広めに */
 }
 
 a {
-    color: #007bff; /* リンクの色をスタイリッシュに */
+    color: #08d9d6; /* アイおすすめのアクセントカラー！ (明るいティール) */
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, opacity 0.3s ease;
 }
 
 a:hover {
-    color: #0056b3;
-    text-decoration: underline;
+    color: #00a7a3; /* ホバー時は少し濃い色に */
+    opacity: 0.8;
+    text-decoration: none; /* 下線はなし */
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
-    color: #1a1a1a; /* 見出しの色を濃く */
+    color: #ffffff; /* 見出しは白でくっきり */
+    font-weight: 600; /* 少し太めに */
 }
 
 /* ヘッダー (トップ画像エリア) */
 .top-hero {
-    position: relative; /* 子要素の絶対配置の基準にする */
-    height: 60vh; /* ビューポートの高さの60% */
-    min-height: 400px; /* 最小の高さを指定 */
-    background-color: #333; /* 画像が読み込まれるまでの背景色 */
-    display: flex; /* Flexboxを使って中の要素を配置 */
-    align-items: center; /* 垂直方向中央揃え */
-    justify-content: center; /* 水平方向中央揃え */
+    position: relative;
+    height: 70vh; /* 高さを少し大きく */
+    min-height: 450px;
+    background-color: #111; /* 画像読み込み前の背景 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    overflow: hidden; /* 画像がはみ出ないように */
+    overflow: hidden;
 }
 
 .hero-image-area {
@@ -43,240 +45,205 @@ h1, h2, h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('images/top-image.jpg'); /* お兄ちゃんが用意するトップ画像へのパス */
-    background-size: cover; /* 画像がエリア全体を覆うように */
-    background-position: center; /* 画像の中央を表示 */
-    filter: brightness(0.7); /* 画像を少し暗くして文字を見やすくする */
-    z-index: 1; /* リンクより後ろに表示 */
+    background-image: url('images/top-image.jpg'); /* お兄ちゃんのトップ画像 */
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.5) contrast(1.1); /* 画像を暗め＆コントラスト少しUP */
+    z-index: 1;
 }
 
-
 .hero-links {
-    position: absolute; /* 親要素(.top-hero)に対して絶対配置 */
-    bottom: 20px;
-    right: 20px;
-    padding: 15px;
-    background-color: rgba(0, 0, 0, 0.6); /* 少し透明な黒背景 */
-    border-radius: 8px;
-    z-index: 2; /* 画像より手前に表示 */
-    display: flex; /* Flexboxでリンクを横並び */
-    gap: 15px; /* リンク間の隙間 */
+    position: absolute;
+    bottom: 30px; /* 位置を少し調整 */
+    right: 30px;
+    padding: 15px 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* 背景を少し濃く、透明度も調整 */
+    border-radius: 10px; /* 角丸を少し大きく */
+    z-index: 2;
+    display: flex;
+    gap: 20px; /* リンク間の隙間を少し広く */
+    backdrop-filter: blur(5px); /* 背景をぼかすガラス風エフェクト (対応ブラウザのみ) */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* 細い枠線 */
 }
 
 .hero-links a {
     color: #fff;
-    font-weight: bold;
-    padding: 8px 12px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    font-weight: 500; /* 少し細めに */
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    letter-spacing: 0.5px; /* 文字間隔を少し */
 }
 
 .hero-links a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: #08d9d6; /* アクセントカラーを背景に */
+    color: #1f1f1f; /* 文字色を背景色に合わせて暗く */
     text-decoration: none;
 }
 
 /* メインコンテンツエリア */
 main {
-    max-width: 1200px; /* 最大幅 */
-    margin: 40px auto; /* 上下40px、左右は自動で中央揃え */
-    padding: 0 20px; /* 左右に少し余白 */
+    max-width: 1100px; /* 最大幅を少し狭めてスタイリッシュに */
+    margin: 60px auto; /* 上下のマージンを増やす */
+    padding: 0 30px; /* 左右の余白も少し増やす */
 }
 
 /* セクションのタイトル */
 h2 {
-    font-size: 2em; /* ちょっと大きめ */
-    margin-bottom: 30px;
+    font-size: 2.4em; /* さらに大きく、大胆に！ */
+    margin-bottom: 40px;
     text-align: center;
-    color: #2c3e50; /* 落ち着いた色 */
-    border-bottom: 2px solid #3498db; /* 下線でアクセント */
-    padding-bottom: 10px;
-    display: inline-block; /* 中央寄せのために必要 */
+    color: #08d9d6; /* タイトルにもアクセントカラー！ */
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(8, 217, 214, 0.3); /* アクセントカラーの薄い下線 */
+    letter-spacing: 1px; /* 文字間隔 */
 }
 
 section {
-    margin-bottom: 60px;
-    text-align: center; /* セクションタイトルを中央に */
+    margin-bottom: 80px; /* セクション間のマージンを大きく */
+    text-align: center;
 }
 section h2 {
-    display: block; /* h2をブロック要素に戻して中央寄せ */
+    display: inline-block; /* 中央寄せのため */
 }
 
 
 /* ピックアップ記事 */
 .featured-articles .articles-container {
-    display: flex;
-    justify-content: space-around; /* 各カードを均等に配置 */
-    flex-wrap: wrap; /* 画面幅が足りない場合は折り返す */
-    gap: 20px; /* カード間の隙間 */
+    display: grid; /* FlexboxからGridに変更して、より柔軟なレイアウトも可能に */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* レスポンシブなカラム */
+    gap: 30px; /* カード間の隙間を広げる */
 }
 
 .article-card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 立体感を出す影 */
-    overflow: hidden; /* 画像がはみ出ないように */
-    width: calc(33.333% - 20px); /* 3カラム、gapを考慮 */
-    min-width: 280px; /* 最小幅 */
-    text-align: left; /* カード内のテキストは左揃え */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #2a2a2a; /* カードの背景色をダークに */
+    border-radius: 12px; /* 角丸をさらに大きく */
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.4s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* 影を少し調整 */
+    border: 1px solid transparent; /* ホバー時のため */
 }
 
 .article-card:hover {
-    transform: translateY(-5px); /* 少し上に浮き上がる */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px) scale(1.02); /* 浮き上がりを大きく、少し拡大も */
+    box-shadow: 0 10px 30px rgba(8, 217, 214, 0.2); /* アクセントカラーのグロー風シャドウ */
+    border-color: #08d9d6;
 }
 
 .article-card a {
-    display: block; /* リンクエリアをカード全体に */
-    color: inherit; /* 親要素の色を継承 */
+    display: block;
+    color: inherit;
     text-decoration: none;
 }
-.article-card a:hover {
-    text-decoration: none; /* 下線はなし */
+.article-card a:hover { /* カード全体のリンクホバーは特にスタイル不要に */
+    text-decoration: none;
 }
 
 .article-card img {
     width: 100%;
-    height: 200px; /* 高さを固定 */
-    object-fit: cover; /* 画像がコンテナに合わせてトリミングされる */
+    height: 220px; /* 高さを少し大きく */
+    object-fit: cover;
     display: block;
-    transition: transform 0.3s ease; /* JavaScriptで制御するなら不要かも */
+    transition: transform 0.4s ease-out; /* 画像のホバーは少しゆっくり */
 }
 
-/* script.jsで制御する場合のホバーエフェクトはscript.js側に記述 */
-/* CSSのみでやるなら:
 .article-card:hover img {
-    transform: scale(1.05);
+    transform: scale(1.08); /* カードホバーで画像を少し大きく */
 }
-*/
 
 .article-card .card-content {
-    padding: 20px;
+    padding: 25px; /* パディングを調整 */
 }
 
 .article-card h3 {
-    font-size: 1.4em;
-    margin-bottom: 10px;
-    color: #34495e;
+    font-size: 1.6em; /* タイトルを大きく */
+    margin-bottom: 12px;
+    color: #08d9d6; /* カードタイトルもアクセントカラー */
+    font-weight: 700;
 }
 
 .article-card p {
-    font-size: 0.95em;
-    color: #555;
-    line-height: 1.5;
+    font-size: 0.98em;
+    color: #c0c0c0; /* 説明文の色を少し明るく */
+    line-height: 1.6;
 }
 
 /* 新着記事・過去記事 */
 .recent-posts .posts-list {
     display: flex;
-    flex-direction: column; /* 縦に並べる */
-    gap: 30px; /* 各記事間の隙間 */
+    flex-direction: column;
+    gap: 25px; /* 各記事間の隙間 */
 }
 
 .post-item {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    background-color: #2a2a2a; /* こちらもダークな背景 */
+    border-radius: 10px;
     overflow: hidden;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
     text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* 細い枠線 */
 }
 .post-item:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 5px 20px rgba(8, 217, 214, 0.15);
+    background-color: #333; /* ホバーで背景を少し明るく */
 }
 
 .post-item a {
-    display: flex; /* サムネイルと情報を横並び */
-    align-items: flex-start; /* 上揃え */
+    display: flex;
+    align-items: center; /* 中央揃えに */
     color: inherit;
     text-decoration: none;
-    padding: 20px;
-    gap: 20px; /* サムネイルと情報の間の隙間 */
+    padding: 25px; /* パディングを増やす */
+    gap: 25px;
 }
 .post-item a:hover {
     text-decoration: none;
 }
 
-
 .post-thumbnail {
-    width: 150px; /* サムネイルの幅を固定 */
-    height: 100px; /* サムネイルの高さを固定 */
+    width: 180px; /* サムネイルの幅を大きく */
+    height: 120px; /* サムネイルの高さを大きく */
     object-fit: cover;
-    border-radius: 5px;
-    flex-shrink: 0; /* 画像が縮まないように */
+    border-radius: 8px; /* 角丸を少し大きく */
+    flex-shrink: 0;
+    border: 2px solid transparent; /* ホバー用 */
+    transition: border-color 0.3s ease;
+}
+.post-item:hover .post-thumbnail {
+    border-color: #08d9d6; /* ホバーでサムネイルにアクセントカラーの枠 */
 }
 
 .post-info h3 {
-    margin-bottom: 5px;
-    font-size: 1.3em;
-    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 1.4em;
+    color: #f0f0f0; /* タイトルは明るく */
+    transition: color 0.3s ease;
+}
+.post-item:hover .post-info h3 {
+    color: #08d9d6; /* ホバーでタイトルをアクセントカラーに */
 }
 
 .post-info time {
-    font-size: 0.85em;
-    color: #7f8c8d;
+    font-size: 0.9em;
+    color: #888; /* 日付の色を調整 */
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .post-info p {
-    font-size: 0.9em;
-    color: #555;
+    font-size: 0.95em;
+    color: #b0b0b0;
     margin-bottom: 0;
 }
 
 /* フッター */
 footer {
     text-align: center;
-    padding: 30px 0;
-    background-color: #2c3e50; /* 濃い背景色 */
-    color: #ecf0f1; /* 明るい文字色 */
-    margin-top: 50px;
+    padding: 40px 0; /* パディングを増やす */
+    background-color: #111; /* フッター背景をさらに暗く */
+    color: #aaa; /* 文字色を調整 */
+    margin-top: 70px; /* マージンを増やす */
+    font-size: 0.9em;
 }
-
-/* レスポンシブ対応 (画面が小さい時) */
-@media (max-width: 992px) {
-    .article-card {
-        width: calc(50% - 15px); /* 2カラム */
-    }
-}
-
-@media (max-width: 768px) {
-    .top-hero {
-        height: 50vh;
-        min-height: 300px;
-    }
-    .hero-links {
-        flex-direction: column; /* リンクを縦並び */
-        bottom: 10px;
-        right: 10px;
-        padding: 10px;
-    }
-    .hero-links a {
-        padding: 6px 10px;
-    }
-
-    .featured-articles .articles-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .article-card {
-        width: 90%; /* 1カラムで少し幅を狭める */
-        max-width: 400px;
-    }
-    .post-item a {
-        flex-direction: column; /* サムネイルと情報を縦並び */
-        align-items: center;
-        text-align: center;
-    }
-    .post-thumbnail {
-        margin-bottom: 15px;
-        width: 80%;
-        max-width: 250px;
-        height: auto;
-    }
-    .post-info {
-        width: 100%;
-    }
-}
+footer
